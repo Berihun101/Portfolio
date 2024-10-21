@@ -1,101 +1,52 @@
-import Image from "next/image";
+
+"use client";
+import Navbar from "./components/Navbar/Navbar";
+import About from "./components/About";
+import { useState } from "react";
+import MySkills from "./components/MySkills";
+import Services from "./components/Services";
+import MyProjects from "./components/MyProjects";
+import ContactMeCard from "./components/ContactMeCard";
+import Contact from "./components/Contact";
+import Footer from "./components/Footer";
+import Link from "next/link";
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const [isOpen, setIsOpen] = useState(false);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  return (
+    <main className="relative">
+      <div className="md:p-4 h-[700px] w-full md:bg-cover md:bg-top md:bg-no-repeat bg-right bg-cover relative mx-auto" style={{ backgroundImage: `url('/myImage3.png')` }}>
+        
+        {/* Navbar */}
+        <Navbar isOpen={isOpen} setIsOpen={setIsOpen} />
+
+        {/* Content */}
+        <div className="bg-transparent p-6 rounded-xl justify-center items-center absolute md:top-60 lg:left-32 md:left-12 xl:left-96 left-2 top-60 md:w-[600px] w-[475px]">
+          <p className="text-myColor text-sm">HELLO! THIS IS BERIHUN</p>
+          <h1 className="md:text-6xl text-5xl font-bold">
+            <span className="text-myColor">Frontend</span> & <span className="text-myColor">Backend</span> Developer
+          </h1>
+          <div className="flex space-x-2 mt-3">
+            <button className="bg-myColor text-white px-4 py-2 rounded-lg">Hire me</button>
+            <Link href='/CV.pdf' download='Berihun_CV.pdf'>
+            <button className="bg-transparent text-myColor px-4 py-2 border-2 border-myColor hover:bg-myColor hover:text-white transition rounded-lg">
+              Download CV
+            </button>
+            </Link>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+
+      </div>
+
+      {/* About Section */}
+      <About id="About" />
+      <MySkills id="myskills" />
+      <Services id="services" />
+      <ContactMeCard  />
+      <MyProjects id="Myprojects" />
+      <Contact id="contact" />
+      <Footer />
+    </main>
   );
 }

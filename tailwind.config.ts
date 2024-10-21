@@ -9,8 +9,15 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+         'myColor': '#0c9157',
+         'myColor_dark': '#045431',
+         'second_color': '#c48210',
+         'background_color': '#d7edaf',
+         'custom-green': 'rgb(138, 191, 117)',
+         'text-myColor': 'rgb(11, 31, 3)',
+      },
+      boxShadow: {
+        'custom-xl': '0 25px 50px -12px rgba(126, 242, 145, 0.5)', // custom shadow
       },
     },
   },
